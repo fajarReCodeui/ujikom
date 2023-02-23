@@ -121,12 +121,5 @@
             @yield('content')
         </main>
     </div>
-    <script>
-        function showForm(id,text,btn){
-            document.getElementById(id).style.display = 'block';
-            document.getElementById(text).style.display = 'none';
-            btn.style.display = 'none';
-        }
-    </script>
 </body>
 </html>

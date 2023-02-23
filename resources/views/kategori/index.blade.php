@@ -45,7 +45,7 @@
                                     <td>
                                         <form action="" method="post">
                                             @csrf
-                                            <a href="#" onclick="showForm('answer1', 'text1', this); return false;" class="btn btn-outline-warning btn-sm">Edit Kategori</a>
+                                            <a href="#"  class="btn btn-outline-warning btn-sm">Edit Kategori</a>
                                             <button type="submit" class="btn btn-outline-danger btn-sm">Hapus Kategori</button>
                                         </form>
                                     </td>
