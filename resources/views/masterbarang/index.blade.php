@@ -14,45 +14,39 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Kode Barang</th>
+                        <th>Kode Categorys</th>
                         <th>Nama Barang</th>
-                        <th>Brand</th>
-                        <th>UOM</th>
-                        <th>Price</th>
-                        <th>Stock</th>
                         <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>BRG/20220403/001</td>
-                        <td>LCD 14 inch</td>
-                        <td>Samsung</td>
-                        <td>Unit</td>
-                        <td>Rp. 1.500.000</td>
-                        <td>80</td>
-                        <td>
-                            <form action="" method="post">
-                                @csrf
-                                @role('gudang|pimpinan|customer')
-                                <a href="{{route('master-barang.show')}}" class="btn btn-outline-secondary btn-sm">
-                                    Tampilkan Stock
-                                </a>
-                                @endrole
-                                @role('gudang')
-                                <a href="{{route('master-barang.edit')}}" class="btn btn-outline-warning btn-sm">
-                                    Update Stock
-                                </a>
-                                <button type="submit" class="btn btn-outline-danger btn-sm">Hapus Stock</button>
-                                @endrole
-                                @role('customer')
-                                <a href="{{route('master-barang.request')}}" class="btn btn-outline-warning btn-sm">
-                                    Buat Permintaan
-                                </a>
-                                @endrole
-                            </form>
-                        </td>
-                    </tr>
+                    @forelse ($cupboards as $cupboard)
+                        <tr>
+                            <td>{{$cupboard->no_reg}}</td>
+                            <td>{{$cupboard->nama}}</td>
+                            <td>
+                                <form action="" method="post">
+                                    @csrf
+                                    @role('gudang|pimpinan')
+                                    <a href="{{route('master-barang.show', $cupboard->id)}}" class="btn btn-outline-secondary btn-sm">
+                                        update stock
+                                    </a>
+                                    <a href="{{route('rak.barang', $cupboard->id)}}" class="btn btn-outline-secondary btn-sm">
+                                        Tampilkan Stock
+                                    </a>
+                                    @endrole
+                                    @role('customer')
+                                    <a href="{{route('rak.barang', $cupboard->id)}}" class="btn btn-outline-warning btn-sm">
+                                        Buat Permintaan
+                                    </a>
+                                    @endrole
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+
+                    @endforelse
+
                 </tbody>
             </table>
         </div>

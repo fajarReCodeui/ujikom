@@ -11,14 +11,15 @@
     </nav>
     @role('gudang')
     <div class="row">
+
         <div class="col-md-4">
             <div class="card border-0">
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{route('kategori.store')}}" method="post">
                         @csrf
-                        <div class="form-group">
+                        <div id="answer1" class="form-group" style="display: none;">
                             <label for="">Nama Kategori</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="nama" id="" class="form-control">
                         </div>
                         <button class="btn btn-outline-info">Simpan Kategori</button>
                     </form>
@@ -37,17 +38,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>KTG/20220403/001</td>
-                                <td>Makanan Kemasan</td>
-                                <td>
-                                    <form action="" method="post">
-                                        @csrf
-                                        <a href="{{route('kategori.edit')}}" class="btn btn-outline-warning btn-sm">Edit Kategori</a>
-                                        <button type="submit" class="btn btn-outline-danger btn-sm">Hapus Kategori</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @forelse ($categorys as $category)
+                                <tr>
+                                    <td>{{$category->no_reg}}</td>
+                                    <td>{{$category->nama}}</td>
+                                    <td>
+                                        <form action="" method="post">
+                                            @csrf
+                                            <a href="#" onclick="showForm('answer1', 'text1', this); return false;" class="btn btn-outline-warning btn-sm">Edit Kategori</a>
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">Hapus Kategori</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <span id="answer1" style="display: none;">
+                                            <textarea rows="10" cols="115"></textarea>
+                                        </span>
+
+                                        <span id="text1">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</span>
+                                    </td>
+                                </tr>
+                            @empty
+
+                            @endforelse
+
                         </tbody>
                     </table>
                 </div>

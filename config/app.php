@@ -168,6 +168,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Alfa6661\AutoNumber\AutoNumberServiceProvider::class,
         /*
          * Application Service Providers...
          */

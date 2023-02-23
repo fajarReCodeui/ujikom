@@ -14,11 +14,11 @@
         <div class="col-md-4">
             <div class="card border-0">
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{route('brand.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="">Nama Brand</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="nama" id="" class="form-control">
                         </div>
                         <button class="btn btn-outline-info">Simpan Brand</button>
                     </form>
@@ -37,17 +37,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>BRND/20220403/001</td>
-                                <td>Kawasaki</td>
-                                <td>
-                                    <form action="" method="post">
-                                        @csrf
-                                        <a href="{{route('brand.edit')}}" class="btn btn-outline-warning btn-sm">Edit Brand</a>
-                                        <button class="submit btn btn-outline-danger btn-sm">Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @forelse ($brands as $brand)
+                                <tr>
+                                    <td>{{$brand->no_reg}}</td>
+                                    <td>{{$brand->nama}}</td>
+                                    <td>
+                                        <form action="" method="post">
+                                            @csrf
+                                            <a href="{{route('brand.edit')}}" class="btn btn-outline-warning btn-sm">Edit Brand</a>
+                                            <button class="submit btn btn-outline-danger btn-sm">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

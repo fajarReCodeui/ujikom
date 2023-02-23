@@ -6,75 +6,57 @@
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb bg-transparent d-flex align-items-center">
             <li class="breadcrumb-item" aria-current="page">Master Barang</li>
-            <li class="breadcrumb-item active" aria-current="page">Request Stock Barang</li>
+            <li class="breadcrumb-item active" aria-current="page">Add Barang Baru</li>
         </ol>
     </nav>
     <div class="card border-0">
         <div class="card-body">
-            <form action="" method="post">
+            <form action="{{route('master-barang.store.permintaan', $permintaan->id)}}" method="post">
                 @csrf
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Nomor refrensi</label>
-                            <input type="text" name="" id="" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="">Nama Barang</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" value="{{$permintaan->nama}}" id="" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Kategori</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Pilih Kategori</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
+                            <input type="text" value="{{$permintaan->category->nor_reg}} - {{$permintaan->category->nama}}" id="" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Brand</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Pilih Brand</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
+                            <input type="text" value="{{$permintaan->brand->nor_reg}} - {{$permintaan->brand->nama}}" id="" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">UOM</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Pilih UOM</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
+                            <label for="">Satuan</label>
+                            <input type="text" value="{{$permintaan->satuan->nor_reg}} - {{$permintaan->satuan->nama}}" id=""
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Kode dan nama Barang</label>
+                            <input type="text" value="{{$permintaan->nor_reg}} - {{$permintaan->nama}}" id=""
+                                class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Harga</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="total" value="{{$permintaan->harga}}" id=""
+                                class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Image</label>
-                            <input type="file" name="" id="" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Status</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <label for="">quantity</label>
+                            <input type="text" name="jumlah" value="{{$permintaan->quantity}}" id="" class="form-control">
                         </div>
                     </div>
                     <div class="ml-3">

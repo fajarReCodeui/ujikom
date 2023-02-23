@@ -16,9 +16,10 @@
                 <div class="card-body">
                     <form action="" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label for="">Nama Kategori</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="nama" id="" class="form-control">
                         </div>
                         <button class="btn btn-outline-info">Perbarui Kategori</button>
                     </form>
@@ -43,7 +44,7 @@
                                 <td>
                                     <form action="" method="post">
                                         @csrf
-                                        <a href="{{route('kategori.edit')}}" class="btn btn-outline-warning btn-sm">Edit
+                                        <a href="" class="btn btn-outline-warning btn-sm">Edit
                                             Kategori</a>
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Hapus
                                             Kategori</button>

@@ -11,11 +11,11 @@
     </nav>
     <div class="row">
         <div class="col-md-4">
-            <form action="" method="post">
+            <form action="{{route('uom.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="">Nama Satuan</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="nama" id="" class="form-control">
                 </div>
                 <button class="btn btn-outline-info">Simpan Satuan</button>
             </form>
@@ -32,17 +32,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>ST/20220403/001</td>
-                                <td>Botol</td>
-                                <td>
-                                    <form action="" method="post">
-                                        @csrf
-                                        <a href="{{route('satuan.edit')}}" class="btn btn-outline-warning btn-sm">Edit Satuan</a>
-                                        <button class="btn btn-outline-danger btn-sm">Hapus Satuan</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @forelse ($satuans as $satuan)
+                                <tr>
+                                    <td>{{$satuan->no_reg}}</td>
+                                    <td>{{$satuan->nama}}</td>
+                                    <td>
+                                        <form action="" method="post">
+                                            @csrf
+                                            <a href="{{route('satuan.edit')}}" class="btn btn-outline-warning btn-sm">Edit Satuan</a>
+                                            <button class="btn btn-outline-danger btn-sm">Hapus Satuan</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+
+                            @endforelse
+
                         </tbody>
                     </table>
                 </div>
