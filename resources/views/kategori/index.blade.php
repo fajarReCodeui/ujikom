@@ -49,13 +49,6 @@
                                             <button type="submit" class="btn btn-outline-danger btn-sm">Hapus Kategori</button>
                                         </form>
                                     </td>
-                                    <td>
-                                        <span id="answer1" style="display: none;">
-                                            <textarea rows="10" cols="115"></textarea>
-                                        </span>
-
-                                        <span id="text1">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</span>
-                                    </td>
                                 </tr>
                             @empty
 
