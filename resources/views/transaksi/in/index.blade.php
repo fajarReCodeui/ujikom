@@ -22,7 +22,7 @@
                         <th>Supplier</th>
                         <th>Jumlah permintaan</th>
                         <th>Tanggal</th>
-                        <th>Status</th>
+                        <th>Quantity</th>
                         @role('gudang')
                             <th>Options</th>
                         @endrole
@@ -37,7 +37,7 @@
                             <td>{{$permintaan->created_at}}</td>
                             <td>{{$permintaan->total}}</td>
                             @role('gudang')
-                                @if ($permintaan->status != 'in')
+                                @if ($permintaan->status == 'in')
                                     <td class="d-flex">
                                         <form action="" method="post">
                                             @csrf
@@ -48,8 +48,6 @@
                                             <button class="btn btn-outline-danger btn-sm ml-2">Tolak</button>
                                         </form>
                                     </td>
-                                    @else
-                                    <td> - </td>
                                 @endif
                             @endrole
                         </tr>

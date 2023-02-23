@@ -10,7 +10,7 @@ class InController extends Controller
 {
     public function index()
     {
-        $permintaans = Permintaan::with('barang')->paginate(5);
+        $permintaans = Permintaan::with('barang')->where('status','in')->paginate(5);
         return view('transaksi.in.index', compact('permintaans'));
     }
 }
